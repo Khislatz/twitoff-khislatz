@@ -21,7 +21,7 @@ def twitter_api_client():
 
 
 if __name__ == "__main__":
-    user = api.get_user("elonmusk")
+    user = api.get_user("khislatz")
     print(type(user)) #> <class 'tweepy.models.User'>
     pprint(user._json)
     print(user.id)
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     print(user.name)
     print(user.followers_count)
     #tweets = api.user_timeline("khislatz", tweet_mode="extended", count=150, exclude_replies=True, include_rts=False)
-    tweets = api.user_timeline("elonmusk", tweet_mode="extended", count=150)
+    tweets = api.user_timeline("khislatz", tweet_mode="extended", count=150)
     print(type(tweets)) #> <class 'tweepy.models.ResultSet'>
     for tweet in tweets:
         print("-----")
