@@ -22,15 +22,16 @@ print(type(connection)) #> <basilica.Connection object at 0x0140AD70>
 # 'server', 'session']
 
 
-def basilica_api_client():
-    return basilica.Connection(BASILICA_API_KEY)
+# def basilica_api_client():
+#     return basilica.Connection(BASILICA_API_KEY)
 
+if __name__ == "__main__":
+    
+    print(type(connection)) 
+    sentences = ["Hello world!", "How are you?"]
+    embeddings = connection.embed_sentences(sentences)
 
-print(type(connection)) 
-sentences = ["Hello world!", "How are you?"]
-embeddings = connection.embed_sentences(sentences)
-
-for embed in embeddings:
-    print(embed)
+    # for embed in embeddings:
+    #     print(embed)
 
 # todo: further comparison!

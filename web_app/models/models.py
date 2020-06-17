@@ -1,26 +1,7 @@
-# web_app/models.py
+# web_app/models/models.py
 
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-
-# import os
-# import sqlite3
-# import pandas as pd
-# from sqlalchemy import create_engine 
-
-# connect_sqlite = sqlite3.connect('tweet_user.sqlite3')
-# print("CONNECTION:", type(connect_sqlite)) 
-# # connect_sqlite.row_factory = sqlite3.Row
-
-# cursor = connect_sqlite.cursor()
-# print("CURSOR:", type(cursor)) 
-
-# # Creating a table 
-# table_creation = '''CREATE TABLE tweet_user (
-# 	user_id_SERIAL PRIMARY KEY,
-#    	user_name VARCHAR(255) NOT NULL,
-# 	tweet TEXT(255) NOT NULL 
-# )'''
 
 db = SQLAlchemy()
 
@@ -31,9 +12,6 @@ class Book(db.Model):
     title = db.Column(db.String(128))
     author_id = db.Column(db.String(128))
 
-    def __repr__(self):
-        return f"<Book {self.id} {self.title}>"
-    
 class User(db.Model):
     id = db.Column(db.BigInteger, primary_key=True)
     screen_name = db.Column(db.String(128), nullable=False)
@@ -52,12 +30,9 @@ class Tweet(db.Model):
 
 def parse_records(database_records):
     """
-    A helper method for converting a list of database record objects into a list of dictionaries, so they can be returned as JSON
-
+    Parses database records into a clean json-like structure
     Param: database_records (a list of db.Model instances)
-
     Example: parse_records(User.query.all())
-
     Returns: a list of dictionaries, each corresponding to a record, like...
         [
             {"id": 1, "title": "Book 1"},

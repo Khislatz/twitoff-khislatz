@@ -15,7 +15,7 @@ def list_books():
     # SELECT * FROM books
     book_records = Book.query.all()
     print(book_records)
-    books = parse_records(book_records)
+    books = parse_records(book_records) # parse_records to convert the book_records into dictionaries
     return jsonify(books)
 
 @book_routes.route("/books")
@@ -28,7 +28,7 @@ def list_books_for_humans():
     # SELECT * FROM books
     book_records = Book.query.all()
     print(book_records)
-    books = parse_records(book_records)
+    books = parse_records(book_records) # parse_records to convert the book_records into dictionaries
     return render_template("books.html", message="Here's some books", books=books)
 
 @book_routes.route("/books/new")
